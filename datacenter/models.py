@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Passcard(models.Model):
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=True)
@@ -23,8 +22,9 @@ class Visit(models.Model):
         return '{user} entered at {entered} {leaved}'.format(
             user=self.passcard.owner_name,
             entered=self.entered_at,
-            leaved=(
-                f'leaved at {self.leaved_at}'
-                if self.leaved_at else 'not leaved'
-            )
-        )
+            leaved=(f'leaved at {self.leaved_at}'
+                    if self.leaved_at else 'not leaved'))
+
+
+
+    
